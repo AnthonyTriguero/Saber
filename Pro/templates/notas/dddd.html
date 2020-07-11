@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block body %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre de materia</th>
+            <th>Curso</th>
+            <th>Profesor</th>
+        </tr>
+
+    </thead>
+    <tbody>
+
+        {% if materias %}
+        {% for materia in materias %}
+        <tr>
+            <td>{{ materia.id_materia }}</td>
+            <td>{{ materia.nombre_de_materia }}</td>
+            <td>{{ materia.curso }}</td>
+            <td>{{ materia.profesor }}</td>
+
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1>no existe </h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock body %}
+
+

@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% block encabezado %}
+{% endblock encabezado %}
+{% block sidebar %}
+{% endblock sidebar %}
+
+{% block contenido_principal %}
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Tipo</td>
+			<td>Nombre</td>
+			<td>Materia</td>
+		</tr>
+
+	</thead>
+	<tbody>
+		{% if materias %}
+		{% for general in general %}
+		<tr>
+			<td>{{ general.tipo }}</td>
+            <td>{{ general.codigo }}</td>
+            <td>{{ general.nombre }}</td>
+
+			<td>
+				<a class="btn btn-primary" href="{% url 'notas:editarMateria' materia.id_materia %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'notas:eliminarMateria' materia.id_materia %}">Eliminar</a>
+
+			</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registros de materias</h1>
+		{% endif %}
+    </tbody>
+</table>
+{% endblock%}
